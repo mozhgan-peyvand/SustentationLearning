@@ -8,6 +8,7 @@ import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.home_level_item.view.*
 
 class HomeAdapter(var context: Context, var arrayList: ArrayList<HomeView>) : BaseAdapter() {
+
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var view = View.inflate(context, R.layout.home_level_item, null)

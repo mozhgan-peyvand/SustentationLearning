@@ -10,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.GridLayout
 import android.widget.GridView
 import android.widget.Toast
+import com.ramotion.foldingcell.FoldingCell
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -20,6 +21,7 @@ class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
     private var arrayList: ArrayList<HomeView>? = null
     private var gridView: GridView? = null
     private var listAdapter: HomeAdapter? = null
+    lateinit var fc: FoldingCell
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +40,15 @@ class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
         gridView?.adapter = listAdapter
         gridView?.onItemClickListener = this
 
+         fc = folding_cell
+
+        fc.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                //Your code here
+                fc.toggle(false);
+
+            }})
+
 
     }
 
@@ -47,6 +58,8 @@ class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
         arrayList.add(HomeView("mozhgan"))
         arrayList.add(HomeView("mina"))
         arrayList.add(HomeView("sima"))
+
+
         return arrayList
     }
 

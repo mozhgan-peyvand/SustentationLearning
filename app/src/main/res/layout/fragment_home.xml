@@ -1,24 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".HomeFragment"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    >
 
 
-    <GridView
-        android:id="@+id/gv_home"
+    <com.ramotion.foldingcell.FoldingCell
+        android:id="@+id/folding_cell"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="150dp"
-        android:numColumns="auto_fit"
-        android:verticalSpacing="15dp"
-        android:horizontalSpacing="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"
+        >
+    ​
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/cell_content_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="good text"
+            android:textSize="24dp"/>
+
+
+        <GridView
+            android:id="@+id/gv_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnWidth="200dp"
+            android:gravity="center"
+            android:horizontalSpacing="15dp"
+            android:numColumns="4"
+            android:verticalSpacing="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="NestedScrolling"
+            tools:listitem="@layout/home_level_item" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="very very good text"
+            android:textSize="24dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:text="ADD A BUTTON"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    ​
+
+        <LinearLayout
+            android:id="@+id/cell_title_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorPrimary"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="good text"
+                android:textSize="24dp" />
+        </LinearLayout>
+        ​
+    </com.ramotion.foldingcell.FoldingCell>
+
+</LinearLayout>
